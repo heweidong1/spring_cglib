@@ -1,0 +1,21 @@
+Spring实例化bean的过程
+将扫描的class 封装为BeanDefinition 在放到 map中
+ 
+
+当自己写的配置类
+ 
+ 
+
+会直接将appfig.class 直接放到map中   
+底层源码会将map中的类 全拿出来  默认会有7个 加上 自己的appfig
+
+拿出 appfig类后会解析  这个类中的map 的configurationClass 的值
+第一次肯定是null  会判断该类是否有@configaciton注解 当有这个注解 时  会给configurationcalass赋值为full
+当没有的时候会赋值为lite
+
+
+
+
+当值为full时  会利用后置处理bean  生成动态代理
+
+
